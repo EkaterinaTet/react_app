@@ -1,15 +1,63 @@
 .profile_data img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 .profile_data {
   display: flex;
   margin-top: 20px;
   margin-left: 10px;
+  margin-bottom: 10px;
+  position: relative;
 }
 .profile_text {
   margin-left: 40px;
 }
 .profile_text p:first-child {
   font-size: 20px;
+}
+
+.input_file {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+}
+.input_file span {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-size: 14px;
+  vertical-align: middle;
+  color: rgb(255 255 255);
+  text-align: center;
+  border-radius: 4px;
+  background-color: #c59ec4;
+  line-height: 0px;
+  height: 20px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  transition: background-color 0.2s;
+}
+.input_file input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+.input_file input[type="file"]:focus + span {
+  box-shadow: 0 0 0 0.2rem rgba(205, 218, 231, 0.25);
+}
+.input_file:hover span {
+  background-color: #ad9dad;
+}
+.input_file:active span {
+  background-color: #ad9dad;
+}
+.input_file input[type="file"]:disabled + span {
+  background-color: #eee;
 }

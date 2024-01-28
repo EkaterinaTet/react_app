@@ -5,17 +5,13 @@ function Profile(props) {
   return (
     <div>
       <ProfileInfo
+        savePhoto={props.savePhoto}
+        isOwner={props.isOwner}
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
       />
-      <MyPostsContainer
-      // store={props.store}
-
-      // postData={props.profilePage.postData}
-      // newPostText={props.profilePage.newPostText}
-      // dispatch={props.dispatch}
-      />
+      <MyPostsContainer />
     </div>
   );
 }
