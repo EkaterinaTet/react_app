@@ -1,0 +1,24 @@
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+}
+.pagination span {
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+.selected_number {
+  font-weight: bold;
+}
+.pagination_btn {
+  border: none;
+  cursor: pointer;
+}
+.pagination_btnLeft::after {
+  content: "<";
+}
+.pagination_btnRight::after {
+  content: ">";
+}

@@ -1,0 +1,8 @@
+.dialog_avatar {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 10px;
+}
+.dialog_content {
+  display: flex;
+}

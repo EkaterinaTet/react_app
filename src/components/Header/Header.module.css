@@ -1,0 +1,33 @@
+.header {
+  background-color: #ad8f8f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.header img {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+}
+.login_block {
+  margin-right: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
+.login_block a {
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #000;
+  padding: 5px;
+}
+.btn_logout {
+  background: transparent;
+  cursor: pointer;
+  padding: 3px;
+}
+.btn_logout:hover {
+  color: #fff;
+  border-color: #fff;
+  transition: all 0.4s ease-in;
+}

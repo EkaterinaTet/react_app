@@ -1,0 +1,9 @@
+.preloader_img {
+  position: absolute;
+  left: 50%;
+  margin-top: 50%;
+}
+.preloader {
+  position: relative;
+  width: 25%;
+}

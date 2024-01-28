@@ -1,0 +1,21 @@
+.profile_posts textarea {
+  margin-left: 10px;
+  width: 70%;
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+}
+.profile_posts button {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.posts {
+  margin-left: 40px;
+}
+.posts_form {
+  display: flex;
+}
+
+.textarea_error {
+  border: 2px solid red;
+}
