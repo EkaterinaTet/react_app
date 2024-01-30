@@ -8,6 +8,7 @@ import {
   getStatus,
   updateStatus,
   savePhoto,
+  saveProfile,
 } from "../../redux/profile-reducer";
 import { withAuthNavigate } from "../../hoc/withAuthNavigate";
 import { compose } from "redux";
@@ -32,6 +33,7 @@ function ProfileContainer(props) {
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
+        saveProfile={props.saveProfile}
       />
     </div>
   );
@@ -56,6 +58,7 @@ export default compose(
     getStatus,
     updateStatus,
     savePhoto,
+    saveProfile,
   }),
   withAuthNavigate
 )(ProfileContainer);

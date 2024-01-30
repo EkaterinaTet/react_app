@@ -61,3 +61,11 @@
 .input_file input[type="file"]:disabled + span {
   background-color: #eee;
 }
+.write_status {
+  display: flex;
+}
+.status {
+  width: 18px !important;
+  height: 18px !important;
+  margin-left: 55px;
+}

@@ -94,7 +94,10 @@ const ProfileStatus = (props) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {!editMode && (
           <div>
-            <span onDoubleClick={activateEditMode}>
+            <span
+              style={{ marginLeft: "5px", cursor: "pointer" }}
+              onDoubleClick={activateEditMode}
+            >
               {props.status || "----"}
             </span>
           </div>

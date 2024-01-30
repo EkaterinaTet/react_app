@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import s from "./MyPost.module.css";
 import Post from "./Post/Post";
 import { useForm } from "react-hook-form";
@@ -7,7 +7,12 @@ const MyPosts = (props) => {
   let postElement = [...props.postData]
     .reverse()
     .map((post) => (
-      <Post id={post.id} message={post.message} like={post.like} />
+      <Post
+        key={post.id}
+        id={post.id}
+        message={post.message}
+        like={post.like}
+      />
     ));
 
   // let newPostElement = React.createRef();
@@ -35,12 +40,7 @@ const MyPosts = (props) => {
 };
 
 const MyPostsForm = (props) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     props.addPost(data.newPostText);
