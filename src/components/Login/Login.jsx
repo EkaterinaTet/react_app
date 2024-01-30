@@ -13,22 +13,16 @@ const LoginForm = (props) => {
     setError,
     reset,
   } = useForm({ mode: "onBlur" });
-  //по умолчанию в полях значения (useForm)
-  //   {
-  //   defaultValues: {
-  //     email: "email@test.tu",
-  //     password: "12345",
-  //   },
-  // }
+
   const onSubmit = (data) => {
-    props.login(data.email, data.password, data.rememberMe, setError);
-    reset();
-    // {
-    //   email: "",
-    //   password: "",
-    //   rememberMe: false,
-    // },
-    // { keepErrors: true }
+    props.login(
+      data.email,
+      data.password,
+      data.rememberMe,
+      data.captcha,
+      setError
+    );
+    // reset();
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -70,6 +64,28 @@ const LoginForm = (props) => {
         </div>
       )}
 
+      {props.captchaUrl && (
+        <img
+          style={{
+            height: "100px",
+            width: "200px",
+            display: "flex",
+            marginBottom: "10px",
+            marginTop: "10px",
+          }}
+          src={props.captchaUrl}
+        />
+      )}
+      {props.captchaUrl && (
+        <input
+          {...register("captcha", {
+            required: "require field",
+          })}
+          type="text"
+          placeholder="Symbols from image"
+        />
+      )}
+
       <input
         className={s.form_btn}
         type="submit"
@@ -87,13 +103,14 @@ const Login = (props) => {
   return (
     <div className={s.form_login}>
       <h1>Login</h1>
-      <LoginForm login={props.login} />
+      <LoginForm login={props.login} captchaUrl={props.captchaUrl} />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
+  captchaUrl: state.auth.captchaUrl,
 });
 
 export default connect(mapStateToProps, { login })(Login);
