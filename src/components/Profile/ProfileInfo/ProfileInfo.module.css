@@ -18,7 +18,6 @@
 
 .input_file {
   position: absolute;
-  bottom: 0;
   display: inline-block;
 }
 .input_file span {
@@ -63,9 +62,46 @@
 }
 .write_status {
   display: flex;
+  left: -50px;
+  width: 210px;
+  position: absolute;
+  top: 155px;
 }
 .status {
   width: 18px !important;
   height: 18px !important;
   margin-left: 55px;
+}
+.profile_edit_btn {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  top: 0px;
+}
+.profile_edit_textarea {
+  resize: none;
+}
+.profile_name {
+  font-size: 20px;
+}
+.profile_cancel_btn {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .profile_data {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile_text {
+    margin-top: 35px;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .profile_text {
+    margin-top: 50px;
+  }
 }

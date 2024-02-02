@@ -11,11 +11,11 @@ const Paginator = (props) => {
   let portionCount = Math.ceil(pagesCount / 10);
   let [currentPortion, setCurrentPortion] = useState(
     Math.ceil(props.currentPage / 10)
-  ); // или useState(1) - будет сбрасываться на 1 стр при уходе
-  let currentLeftBorder = (currentPortion - 1) * 10 + 1; //10 - сколько стр будет выводиться за раз
+  ); // or useState(1) - will be reset to 1 page when leaving
+  let currentLeftBorder = (currentPortion - 1) * 10 + 1; //10 - how many pages will be displayed at a time
   let currentRightBorder = currentPortion * 10;
 
-  //чтобы выводились не все стр сразу
+  //so that not all pages are displayed at once:
   // let slicedPages;
   // let curPage = props.currentPage;
   // if (curPage - 3 < 0) {

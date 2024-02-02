@@ -33,14 +33,6 @@ function Navbar() {
           <NavLink to="/users" style={setActive} className={s.users_title}>
             Users
           </NavLink>
-          {/* <div className={s.friends_content}>
-            <div className={s.friend_elem}>
-              <img
-                src="https://www.svgrepo.com/show/452030/avatar-default.svg"
-                alt="avatar"
-              />
-            </div>
-          </div> */}
         </li>
       </ul>
     </div>

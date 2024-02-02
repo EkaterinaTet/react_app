@@ -1,5 +1,7 @@
 .post p {
   font-size: 16px;
+  margin-right: 5px;
+  white-space: normal;
 }
 .post button {
   cursor: pointer;

@@ -1,5 +1,4 @@
 const ADD_MESSAGE = "chat/ADD-MESSAGE";
-// const UPDATE_NEW_TEXT_MESSAGE = "UPDATE-NEW-TEXT-MESSAGE";
 
 let initialState = {
   dialogNameData: [
@@ -9,7 +8,6 @@ let initialState = {
     { id: 4, name: "Oleg" },
   ],
   messagesData: [
-    //поправка с id
     { id: 1, name: "Name", message: "Hi. My name is Tom." },
     { id: 2, name: "Me", message: "How are you?" },
     {
@@ -31,26 +29,6 @@ const chatReducer = (state = initialState, action) => {
           { id: 4, name: "Name", message: text },
         ],
       };
-    // let newMessage = {
-    //   id: 4,
-    //   name: "Name",
-    //   message: state.newMessageText,
-    // };
-    // let stateCopy = structuredClone(state);
-    // stateCopy.messagesData.push(newMessage);
-    // stateCopy.newMessageText = "";
-    // return stateCopy;
-
-    // case UPDATE_NEW_TEXT_MESSAGE:
-    //   return {
-    //     ...state,
-    //     newMessageText: action.newText,
-    //   };
-
-    // let stateCopy = structuredClone(state);
-    // stateCopy.newMessageText = action.newText;
-    // return stateCopy;
-
     default:
       return state;
   }
@@ -62,11 +40,5 @@ export const addMessageActionCreator = (newMessageText) => {
     newMessageText,
   };
 };
-// export const updateNewTextMessageActionCreator = (text) => {
-//   return {
-//     type: UPDATE_NEW_TEXT_MESSAGE,
-//     newText: text,
-//   };
-// };
 
 export default chatReducer;

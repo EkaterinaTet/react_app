@@ -3,6 +3,7 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
+  flex-wrap: wrap;
 }
 .pagination span {
   font-size: 20px;
@@ -21,4 +22,10 @@
 }
 .pagination_btnRight::after {
   content: ">";
+}
+@media (max-width: 480px) {
+  .pagination {
+    justify-content: flex-start;
+    margin-right: 45px;
+  }
 }

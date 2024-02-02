@@ -8,11 +8,9 @@ import {
   pageChanged,
 } from "../../redux/users-reducer";
 import { connect } from "react-redux";
-import axios from "axios"; //работа с сервером(библиотека)
 import React from "react"; //для классов
 import UsersFunc from "./UsersFunc";
 import Preloader from "../common/Preloader/Preloader";
-import { usersAPI } from "../../api/api";
 import { withAuthNavigate } from "../../hoc/withAuthNavigate";
 import { compose } from "redux";
 import {
@@ -25,41 +23,11 @@ import {
 } from "../../redux/users-selectors";
 
 class UsersAPI extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
-    //{this.props.toggleIsFetching(true);}
-    // axios
-    //   .get(
-    //     `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-    //     {
-    //       withCredentials: true,
-    //     }
-    //   )
-    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
-    //     this.props.toggleIsFetching(false);
-    //     this.props.setUsers(data.items);
-    //     this.props.setTotalUsersCount(data.totalCount);
-    //   });
   }
   onPageChanged = (pageNumber) => {
     this.props.pageChanged(pageNumber, this.props.pageSize); //это из users-reducer (thunk)
-
-    // this.props.setCurrentPage(pageNumber);
-    // this.props.toggleIsFetching(true);
-    // // axios
-    // //   .get(
-    // //     `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-    // //     {
-    // //       withCredentials: true,
-    // //     }
-    // //   )
-    // usersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
-    //   this.props.toggleIsFetching(false);
-    //   this.props.setUsers(data.items);
-    // });
   };
 
   render() {
@@ -86,15 +54,11 @@ class UsersAPI extends React.Component {
 //   return {
 //     users: state.usersPage.users,
 //     pageSize: state.usersPage.pageSize,
-//     totalUsersCount: state.usersPage.totalUsersCount,
-//     currentPage: state.usersPage.currentPage,
-//     isFetching: state.usersPage.isFetching,
-//     followingInProgress: state.usersPage.followingInProgress,
+// и тд
 //   };
 // };
 
 //это
-
 let mapStateToProps = (state) => {
   return {
     users: getUsers(state),
@@ -129,20 +93,6 @@ let mapStateToProps = (state) => {
 //   };
 // };
 
-//вместо этого:
-// let AuthNavigateComponent = withAuthNavigate(UsersAPI);
-// const UsersContainer = connect(mapStateToProps, {
-//   setCurrentPage,
-//   getUsers: getUsersThunkCreator,
-//   follow,
-//   unfollow,
-//   setUsers,
-//   toggleIsFetching,
-//   pageChanged,
-// })(AuthNavigateComponent);
-// export default UsersContainer;
-
-//это:
 export default compose(
   connect(mapStateToProps, {
     setCurrentPage,

@@ -46,13 +46,6 @@ let UsersFunc = (props) => {
                     className={s.btn_follow}
                     onClick={() => {
                       props.unfollow(u.id);
-                      // props.toggleFollowingProgress(true, u.id);
-                      // usersAPI.userUnfollow(u.id).then((response) => {
-                      //   if (response.data.resultCode == 0) {
-                      //     props.unfollowSuccess(u.id);
-                      //   }
-                      //   props.toggleFollowingProgress(false, u.id);
-                      // });
                     }}
                   >
                     Unfollow
@@ -65,13 +58,6 @@ let UsersFunc = (props) => {
                     className={s.btn_follow}
                     onClick={() => {
                       props.follow(u.id);
-                      // props.toggleFollowingProgress(true, u.id);
-                      // usersAPI.userFollow(u.id).then((response) => {
-                      //   if (response.data.resultCode == 0) {
-                      //     props.followSuccess(u.id);
-                      //   }
-                      //   props.toggleFollowingProgress(false, u.id);
-                      // });
                     }}
                   >
                     Follow
@@ -83,10 +69,6 @@ let UsersFunc = (props) => {
               <div className={s.user_data}>
                 <p className={s.user_name}>{u.name}</p>
                 <p>{u.status}</p>
-              </div>
-              <div className={s.user_data}>
-                <p className={s.user_location}>u.location.county</p>
-                <p className={s.user_location}>u.location.city</p>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ const LoginForm = (props) => {
     formState: { errors, isValid },
     clearErrors,
     setError,
-    reset,
+    //   reset,
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
@@ -68,12 +68,13 @@ const LoginForm = (props) => {
         <img
           style={{
             height: "100px",
-            width: "200px",
+            width: "180px",
             display: "flex",
             marginBottom: "10px",
             marginTop: "10px",
           }}
           src={props.captchaUrl}
+          alt="captcha"
         />
       )}
       {props.captchaUrl && (

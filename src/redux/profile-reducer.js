@@ -10,15 +10,13 @@ let initialState = {
   postData: [
     {
       id: 1,
-      message:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, reprehenderit!",
+      message: "Let’s smile more",
       like: 15,
     },
-    { id: 2, message: "Hello, how are you?", like: 5 },
+    { id: 2, message: "Do what you love.", like: 5 },
     { id: 3, message: "How are you?", like: 10 },
     { id: 4, message: "Good day!)", like: 20 },
   ],
-  // newPostText: "Write something",
   profile: null, //профиля пока нет
   status: "",
 };
@@ -37,12 +35,6 @@ const profileReducer = (state = initialState, action) => {
       stateCopy.newPostText = "";
       return stateCopy;
     }
-
-    // case UPDATE_NEW_POST_TEXT: {
-    //   let stateCopy = { ...state };
-    //   stateCopy.newPostText = action.newText;
-    //   return stateCopy;
-    // }
 
     case SET_USER_PROFILE: {
       return {
@@ -133,7 +125,7 @@ export const saveProfile =
         type: "custom",
         message: response.data.messages,
       });
-      //return Promise.reject(response.data.messages);
+      return Promise.reject(response.data.messages);
     }
   };
 

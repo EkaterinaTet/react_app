@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
@@ -26,19 +26,15 @@ const ProfileContainerWithSuspense = withSuspense(ProfileContainer);
 const UsersContainerWithSuspense = withSuspense(UsersContainer);
 
 function App(props) {
+  const catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    alert("Some error occured");
+  };
   useEffect(() => {
     props.initializeApp();
-    // axios
-    //   .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-    //     withCredentials: true,
-    //   })
-
-    // usersAPI.headerAuthMe().then((data) => {
-    //   if (data.resultCode == 0) {
-    //     let { id, email, login } = data.data;
-    //     this.props.setUserData(id, email, login);
-    //   }
-    // });
+    window.addEventListener("unhandledrejection", catchAllUnhandledErrors);
+    return () => {
+      window.removeEventListener("unhandledrejection", catchAllUnhandledErrors);
+    };
   }, []);
 
   if (!props.initialized) {
@@ -51,16 +47,17 @@ function App(props) {
         <Navbar />
         <div className="profile_content">
           <Routes>
+            <Route path="/" element={<Navigate to="/profile" />} />
             <Route
               path="/profile/:userId?"
               element={<ProfileContainerWithSuspense />}
             />
             <Route path="/chat/*" element={<ChatContainerWithSuspense />} />
-
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/users" element={<UsersContainerWithSuspense />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<div>404 NOT FOUND</div>} />
           </Routes>
         </div>
       </div>
@@ -76,11 +73,7 @@ const MainApp = (props) => {
   return (
     <HashRouter>
       <Provider store={store}>
-        <AppContainer
-        // dispatch={store.dispatch.bind(store)}
-        // state={state}
-        // store={store}
-        />
+        <AppContainer />
       </Provider>
     </HashRouter>
   );

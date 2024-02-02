@@ -1,30 +1,16 @@
 import s from "./Chat.module.css";
 import Message from "./Message/Message";
 import DialogName from "./DialogName/DialogName";
-import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
-// import {
-//   addMessageActionCreator,
-//   updateNewTextMessageActionCreator,
-// } from "../../redux/chat-reducer";
 
 const Chat = (props) => {
   let dialogElements = props.dialogNameData.map((dialog) => (
-    <DialogName key={dialog.id} name={dialog.name} id={dialog.id} /> //  добавила key
+    <DialogName key={dialog.id} name={dialog.name} id={dialog.id} />
   ));
 
   let messageElements = props.messagesData.map((message) => (
-    <Message key={message.id} name={message.name} message={message.message} /> //  добавила key
+    <Message key={message.id} name={message.name} message={message.message} />
   ));
-
-  // let onAddMessage = () => {
-  //   props.addMessage();
-  // };
-  // let onMessageChange = (event) => {
-  //   let text = event.target.value;
-  //   props.updateNewTextMessage(text);
-  // };
 
   return (
     <>
@@ -45,7 +31,7 @@ const ChatForm = (props) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    props.addMessage(data.newMessageText); //этот текст необходимо отправить в бизнес
+    props.addMessage(data.newMessageText); //sending this text to business
     reset();
   };
 
@@ -56,15 +42,8 @@ const ChatForm = (props) => {
           required: true,
         })}
         placeholder="Write a message"
-        // onChange={onMessageChange}
-        // value={props.newMessageText}
       />
-      <button
-        type="submit"
-        // onClick={onAddMessage} type="button"
-      >
-        Send
-      </button>
+      <button type="submit">Send</button>
     </form>
   );
 };

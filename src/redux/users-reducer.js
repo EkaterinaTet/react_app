@@ -158,14 +158,6 @@ export const follow = (userId) => {
     let actionCreator = followSuccess;
     followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
   };
-  // return async (dispatch) => {
-  //   dispatch(toggleFollowingProgress(true, userId));
-  //   let response = await usersAPI.userFollow(userId);
-  //   if (response.data.resultCode === 0) {
-  //     dispatch(followSuccess(userId));
-  //   }
-  //   dispatch(toggleFollowingProgress(false, userId));
-  // };
 };
 export const unfollow = (userId) => {
   return async (dispatch) => {
@@ -173,14 +165,6 @@ export const unfollow = (userId) => {
     let actionCreator = unfollowSuccess;
     followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
   };
-  // return async (dispatch) => {
-  //   dispatch(toggleFollowingProgress(true, userId));
-  //   let response = await usersAPI.userUnfollow(userId);
-  //   if (response.data.resultCode === 0) {
-  //     dispatch(unfollowSuccess(userId));
-  //   }
-  //   dispatch(toggleFollowingProgress(false, userId));
-  // };
 };
 
 export default usersReducer;

@@ -15,24 +15,10 @@ const MyPosts = (props) => {
       />
     ));
 
-  // let newPostElement = React.createRef();
-
-  // let onAddPost = () => {
-  //   props.addPost();
-  // };
-  // //будет обрабатывать,когда будет попытка изменить текст в textarea
-  // let onPostChange = () => {
-  //   let text = newPostElement.current.value;
-  //   props.updateNewPostText(text);
-  // };
-
   return (
     <>
       <div className={s.profile_posts}>
-        <MyPostsForm
-          // newPostElement={props.newPostElement}
-          addPost={props.addPost}
-        />
+        <MyPostsForm addPost={props.addPost} />
       </div>
       <div className={s.posts}>{postElement}</div>
     </>
@@ -49,24 +35,13 @@ const MyPostsForm = (props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={s.posts_form}>
       <textarea
-        // className={errors.newPostText ? s.textarea_error : ""}
         {...register("newPostText", {
           required: true,
         })}
         placeholder="Write a post"
-
-        // ref={props.newPostElement}
-
-        // value={props.newPostText}
-        // onChange={onPostChange}
       />
 
-      <button
-        type="submit"
-        //  onClick={onAddPost} type="button"
-      >
-        Send
-      </button>
+      <button type="submit">Send</button>
     </form>
   );
 };

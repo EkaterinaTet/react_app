@@ -7,7 +7,6 @@ const ProfileDataForm = (props) => {
     handleSubmit,
     setError,
     formState: { errors },
-    clearErrors,
   } = useForm({
     defaultValues: props.profile,
   });
@@ -15,11 +14,6 @@ const ProfileDataForm = (props) => {
   useEffect(() => {});
 
   const onSubmit = (data) => {
-    // props.saveProfile(data).then((response) => {
-    //   if (!response) {
-    //     return props.setEditMode(false);
-    //   }
-    // });
     props.saveProfile(data, setError).then(() => {
       props.setEditMode(false);
     });
@@ -33,20 +27,30 @@ const ProfileDataForm = (props) => {
             <span>{errors.server.message}</span>
           </div>
         )}
-
         <div>
-          {/*
-          <button onClick={props.goToViewMode} type={"button"}>
+          <button
+            className={s.profile_cancel_btn}
+            onClick={props.goToViewMode}
+            type={"button"}
+          >
             {" "}
             Cancel
-          </button> */}
-          <input type="submit" value="Save" />
+          </button>
+          <input className={s.profile_edit_btn} type="submit" value="Save" />
         </div>
         <p>
           <input
             {...register("fullName")}
             type="text"
             placeholder="full name"
+          />
+        </p>
+        <p>
+          <b>About me</b>:
+          <textarea
+            className={s.profile_edit_textarea}
+            {...register("aboutMe")}
+            placeholder="tell us about yourselfls"
           />
         </p>
         <p>
@@ -62,13 +66,7 @@ const ProfileDataForm = (props) => {
             placeholder="your skills"
           />
         </p>
-        <p>
-          <b>About me</b>:
-          <textarea
-            {...register("aboutMe")}
-            placeholder="tell us about yourselfls"
-          />
-        </p>
+
         <div>
           <b>Contacts</b>:{" "}
           {Object.keys(props.profile.contacts).map((key) => {

@@ -35,11 +35,18 @@ function ProfileInfo(props) {
             <span>Add a file</span>
           </label>
         )}
+        <div className={s.write_status}>
+          <img className={s.status} src={status} alt="write-status" />
+          <ProfileStatus
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
+        </div>
 
         {editMode ? (
           <ProfileDataForm
             setEditMode={setEditMode}
-            // goToViewMode={() => setEditMode(false)}
+            goToViewMode={() => setEditMode(false)}
             saveProfile={props.saveProfile}
             profile={props.profile}
           />
@@ -53,13 +60,6 @@ function ProfileInfo(props) {
           />
         )}
       </div>
-      <div className={s.write_status}>
-        <img className={s.status} src={status} alt="write-status" />
-        <ProfileStatus
-          status={props.status}
-          updateStatus={props.updateStatus}
-        />
-      </div>
     </>
   );
 }
@@ -68,11 +68,14 @@ export const ProfileData = (props) => {
     <div className={s.profile_text}>
       {props.isOwner && (
         <div>
-          <button onClick={props.goToEditMode}>Edit</button>
+          <button className={s.profile_edit_btn} onClick={props.goToEditMode}>
+            Edit
+          </button>
         </div>
       )}
 
-      <p>{props.profile.fullName}</p>
+      <p className={s.profile_name}>{props.profile.fullName}</p>
+      <p>{props.profile.aboutMe}</p>
       <p>
         <b>Looking for a job</b>: {props.profile.lookingForAJob ? "Yes" : "No"}
       </p>
@@ -82,9 +85,6 @@ export const ProfileData = (props) => {
           <b>Skills</b>: {props.profile.lookingForAJobDescription}
         </p>
       )}
-      <p>
-        <b>About me</b>: <i>{props.profile.aboutMe}</i>
-      </p>
       <div>
         <b>Contacts</b>:{" "}
         {Object.keys(props.profile.contacts).map((key) => {

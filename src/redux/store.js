@@ -1,3 +1,5 @@
+//store вручную
+
 import profileReducer from "./profile-reducer";
 import chatReducer from "./chat-reducer";
 import sidebarReducer from "./sidebar-reducer";

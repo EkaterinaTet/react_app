@@ -20,3 +20,30 @@
 .textarea_error {
   border: 2px solid red;
 }
+@media (max-width: 480px) {
+  .profile_posts textarea {
+    margin-left: 10px;
+    max-width: 100%;
+  }
+  .posts_form {
+    flex-direction: column;
+  }
+  .profile_posts button {
+    width: 60px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .posts {
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .profile_posts textarea {
+    height: 110px;
+    width: 165px;
+  }
+  .posts {
+    max-width: 200px;
+  }
+}

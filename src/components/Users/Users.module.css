@@ -28,6 +28,7 @@
 }
 .user_name {
   font-size: 17px;
+  padding-left: 10px;
 }
 .user_data {
   margin-left: 10px;
@@ -35,4 +36,16 @@
 }
 .user_location {
   font-size: 14px;
+}
+@media (max-width: 500px) {
+  .users {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+  }
+  .users_content {
+    margin-left: -35px;
+    margin-top: 5px;
+    width: 100%;
+  }
 }
