@@ -24,11 +24,7 @@ function Navbar() {
             News
           </NavLink>
         </li>
-        <li className={s.navbar_elem}>
-          <NavLink to="/music" style={setActive}>
-            Music
-          </NavLink>
-        </li>
+
         <li className={s.navbar_elem}>
           <NavLink to="/users" style={setActive} className={s.users_title}>
             Users

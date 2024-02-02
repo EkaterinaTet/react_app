@@ -8,7 +8,7 @@ import {
   pageChanged,
 } from "../../redux/users-reducer";
 import { connect } from "react-redux";
-import React from "react"; //для классов
+import React, { useEffect } from "react"; //для классов
 import UsersFunc from "./UsersFunc";
 import Preloader from "../common/Preloader/Preloader";
 import { withAuthNavigate } from "../../hoc/withAuthNavigate";
@@ -22,32 +22,29 @@ import {
   getUsers,
 } from "../../redux/users-selectors";
 
-class UsersAPI extends React.Component {
-  componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
-  }
-  onPageChanged = (pageNumber) => {
-    this.props.pageChanged(pageNumber, this.props.pageSize); //это из users-reducer (thunk)
+const UsersAPI = (props) => {
+  useEffect(() => {
+    props.getUsers(props.currentPage, props.pageSize);
+  }, []);
+  const onPageChanged = (pageNumber) => {
+    props.pageChanged(pageNumber, props.pageSize); //это из users-reducer (thunk)
   };
-
-  render() {
-    return (
-      <>
-        {this.props.isFetching ? <Preloader /> : null}
-        <UsersFunc
-          totalUsersCount={this.props.totalUsersCount}
-          pageSize={this.props.pageSize}
-          currentPage={this.props.currentPage}
-          onPageChanged={this.onPageChanged}
-          users={this.props.users}
-          followingInProgress={this.props.followingInProgress}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-        />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {props.isFetching ? <Preloader /> : null}
+      <UsersFunc
+        totalUsersCount={props.totalUsersCount}
+        pageSize={props.pageSize}
+        currentPage={props.currentPage}
+        onPageChanged={onPageChanged}
+        users={props.users}
+        followingInProgress={props.followingInProgress}
+        follow={props.follow}
+        unfollow={props.unfollow}
+      />
+    </>
+  );
+};
 
 //вместо этого
 // let mapStateToProps = (state) => {
@@ -59,6 +56,7 @@ class UsersAPI extends React.Component {
 // };
 
 //это
+
 let mapStateToProps = (state) => {
   return {
     users: getUsers(state),

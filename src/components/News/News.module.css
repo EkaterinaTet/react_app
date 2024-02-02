@@ -1,0 +1,33 @@
+h2 {
+  margin-left: 20px;
+  font-size: 35px;
+}
+.news_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.news_title {
+  font-size: 18px;
+}
+.news_item a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.news_item img {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 5px;
+  object-fit: contain;
+}
+@media (max-width: 800px) {
+  .news_items {
+    flex-wrap: wrap;
+  }
+  .news_item img {
+    max-width: 300px;
+  }
+}

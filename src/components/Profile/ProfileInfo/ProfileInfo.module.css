@@ -76,7 +76,7 @@
   position: absolute;
   right: 10px;
   cursor: pointer;
-  top: 0px;
+  /* top: 0px; */
 }
 .profile_edit_textarea {
   resize: none;
@@ -87,7 +87,7 @@
 .profile_cancel_btn {
   position: absolute;
   right: 10px;
-  top: 25px;
+  margin-top: 25px;
   cursor: pointer;
 }
 @media (max-width: 600px) {
@@ -99,9 +99,18 @@
     margin-top: 35px;
     margin-left: 10px;
   }
+  .write_status {
+    width: auto;
+  }
 }
 @media (max-width: 480px) {
   .profile_text {
     margin-top: 50px;
+  }
+}
+@media (max-width: 350px) {
+  .write_status {
+    font-size: 14px;
+    margin-right: 5px;
   }
 }

@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import s from "./ProfileInfo.module.css";
 import { useForm } from "react-hook-form";
+
 const ProfileDataForm = (props) => {
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors },
+    clearErrors,
   } = useForm({
     defaultValues: props.profile,
   });
-
-  useEffect(() => {});
 
   const onSubmit = (data) => {
     props.saveProfile(data, setError).then(() => {
@@ -22,11 +22,6 @@ const ProfileDataForm = (props) => {
   return (
     <div className={s.profile_text}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {errors.server && (
-          <div style={{ color: "red" }}>
-            <span>{errors.server.message}</span>
-          </div>
-        )}
         <div>
           <button
             className={s.profile_cancel_btn}
@@ -77,12 +72,18 @@ const ProfileDataForm = (props) => {
                 <input
                   {...register("contacts." + key)}
                   placeholder={key}
+                  onFocus={() => clearErrors(["contacts." + key, "server"])}
                   type="text"
                 />
               </div>
             );
           })}
         </div>
+        {errors.server && (
+          <div style={{ color: "red" }}>
+            <span>{errors.server.message}</span>
+          </div>
+        )}
       </form>
     </div>
   );

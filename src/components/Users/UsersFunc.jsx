@@ -30,7 +30,7 @@ let UsersFunc = (props) => {
       {props.users.map((u) => {
         return (
           <div key={u.id} className={s.users}>
-            <div>
+            <div className={s.users_up}>
               <NavLink to={"/profile/" + u.id}>
                 <img
                   src={u.photos.small != null ? u.photos.small : userImg}

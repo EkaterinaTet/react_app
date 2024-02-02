@@ -2,7 +2,6 @@ import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
-import Music from "./components/Music/Music";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import { lazy, useEffect } from "react";
@@ -54,7 +53,6 @@ function App(props) {
             />
             <Route path="/chat/*" element={<ChatContainerWithSuspense />} />
             <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} />
             <Route path="/users" element={<UsersContainerWithSuspense />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<div>404 NOT FOUND</div>} />
