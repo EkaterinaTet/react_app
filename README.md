@@ -16,3 +16,9 @@ Password: free
 * React, Redux, JavaScript, React Hooks, Redux Thunk, HOC, React Router, CSS, Responsive Design 
 * social-network.samuraijs.com API, axios
 * Authorization, Captcha, Pagination, Preloader
+
+<p align="left" >
+  <img width="700" height="500" src="https://github.com/EkaterinaTet/react_app/blob/master/src/assets/img/profile.png">
+  <img width="700" height="400" src="https://github.com/EkaterinaTet/react_app/blob/master/src/assets/img/users.png">
+  <img width="700" height="250" src="https://github.com/EkaterinaTet/react_app/blob/master/src/assets/img/react-app.png">
+</p>
